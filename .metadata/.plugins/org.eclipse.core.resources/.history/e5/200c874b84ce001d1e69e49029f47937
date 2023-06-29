@@ -1,0 +1,10 @@
+
+public class TesteReferencias {
+
+	public static void main(String[] args) {
+		Conta terceiraConta = new Conta();
+		terceiraConta.saldo = 1000;
+		
+	}
+	
+}
