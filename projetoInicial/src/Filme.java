@@ -18,6 +18,8 @@ public class Filme {
         return cont;
     }
 
+    public String getNome() { return nome; }
+
     public int getCodigo() {
         return codigo;
     }
