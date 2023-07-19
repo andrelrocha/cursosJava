@@ -7,11 +7,15 @@ public class Movie {
     private double rating;
     private int duration;
     private boolean isAvailable;
+
+    static int totalMinutes = 0;
     
 
-    public Movie(String name, int yrOfRelease) {
+    public Movie(String name, int yrOfRelease, int duration) {
         this.name = name;
         this.yrOfRelease = yrOfRelease;
+
+        totalMinutes += duration;
     }
 
     public void setDirector(String director) {
@@ -74,5 +78,12 @@ public class Movie {
         }
     } 
 
+    public static void totalMovies(Movie[] movies) {
+        System.out.println("Total movies: " + movies.length);
+    }
+
+    public static void totalMinutes() {
+        System.out.println("Total minutes: " + totalMinutes);
+    }
 
 }
