@@ -37,4 +37,42 @@ public class Movie {
     public void setIsAvailabe(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
+
+
+
+    public void displayMovieSpecificities() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Year of release: " + this.yrOfRelease);
+        
+        if (this.genre != null) {         
+            System.out.println("Genre: " + this.genre);
+        } 
+
+        if (this.director != null) {
+            System.out.println("Director: " + this.director);
+        }
+
+        if (this.cast != null) {
+            System.out.println("Cast: ");
+            for (String actor : this.cast) {
+                System.out.println(actor);
+            }
+        }
+
+        if (this.rating != 0) {
+            System.out.println("Rating: " + this.rating);
+        }
+
+        if (this.duration != 0) {
+            System.out.println("Duration: " + this.duration + " minutes");
+        }
+
+        if (this.isAvailable) {
+            System.out.println("Available: Yes");
+        } else {
+            System.out.println("Available: No");
+        }
+    } 
+
+
 }

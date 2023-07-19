@@ -35,8 +35,13 @@ public class Main {
         movieInception.setIsAvailabe(true);
         movies[2] = movieInception;
 
+        //forEach loop
+        for(Movie movie : movies) {
+            movie.displayMovieSpecificities();
+            System.out.println();
+        }
 
-
+        /* 
         System.out.println("How many books there are in your list: ");
         int numOfBooks = scanner.nextInt();
         Book[] books = new Book[numOfBooks];
@@ -57,6 +62,6 @@ public class Main {
                 System.out.println("Next book: ");
             }
         }
-
+        */
     }
 }
