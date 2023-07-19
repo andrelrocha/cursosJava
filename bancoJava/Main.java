@@ -23,7 +23,7 @@ public class Main {
 
         switch (escolha) {
             case 1:
-                CriaConta.criarConta();
+                CriaConta.main();
                 break;
             case 2: 
                 System.out.println("Digite o nome do titular:");
