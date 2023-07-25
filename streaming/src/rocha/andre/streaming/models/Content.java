@@ -1,6 +1,6 @@
 package rocha.andre.streaming.models;
 
-public class Content {
+public abstract class Content {
     private String name;
     private int yrOfRelease;
     private String genre;
@@ -18,6 +18,10 @@ public class Content {
         this.yrOfRelease = yrOfRelease;
 
         totalMinutes += duration;
+    }
+
+    public int getDuration() {
+        return duration;
     }
 
     public void setDirector(String director) {
@@ -43,7 +47,6 @@ public class Content {
     public void setIsAvailabe(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
-
 
     public void displayMovieSpecificities() {
         System.out.println("Name: " + this.name);
@@ -83,8 +86,7 @@ public class Content {
         System.out.println("Total contents: " + contents.length);
     }
 
-    public static void totalMinutes() {
-        System.out.println("Total minutes: " + totalMinutes);
+    public int totalMinutes() {
+        return totalMinutes;
     }
-
 }

@@ -1,4 +1,6 @@
+import rocha.andre.streaming.calculo.CalculateTime;
 import rocha.andre.streaming.models.Movie;
+import rocha.andre.streaming.models.Serie;
 
 import java.util.Scanner;
 
@@ -36,5 +38,10 @@ public class Main {
         for(Movie movie : movies) {
             movie.displayMovieSpecificities();
         }
+
+        Serie serie = new Serie("Game of Thrones", 2011, 50,8, 6);
+
+        CalculateTime calculateTime = new CalculateTime();
+        calculateTime.includeMovie(movieInception);
     }
 }
