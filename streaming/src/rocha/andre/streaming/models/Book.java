@@ -1,3 +1,5 @@
+package rocha.andre.streaming.models;
+
 public class Book {
     private String name;
     private int yrOfRelease;
@@ -27,7 +29,7 @@ public class Book {
         /* 
         System.out.println("How many books there are in your list: ");
         int numOfBooks = scanner.nextInt();
-        Book[] books = new Book[numOfBooks];
+        rocha.andre.streaming.models.Book[] books = new rocha.andre.streaming.models.Book[numOfBooks];
 
         for (int i = 0; i < numOfBooks; i++) {
             System.out.println("Enter the name of the book: ");
@@ -37,7 +39,7 @@ public class Book {
             System.out.println("Enter the year of release of the book: ");
             int yrOfRelease = scanner.nextInt();
             
-            books[i] = new Book(name, author, yrOfRelease);
+            books[i] = new rocha.andre.streaming.models.Book(name, author, yrOfRelease);
 
             if (i == numOfBooks - 1) {
                 System.out.println("Okay, done. ");

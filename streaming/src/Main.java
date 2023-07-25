@@ -1,3 +1,5 @@
+import rocha.andre.streaming.models.Movie;
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,8 +8,7 @@ public class Main {
 
         
         Movie[] movies = new Movie[3];
-        
-        
+
         Movie movieBatman = new Movie("Batman Begins", 2005, 140);
         movieBatman.setDirector("Christopher Nolan");
         movieBatman.setGenre("Action");
@@ -23,7 +24,6 @@ public class Main {
         movieAvengers.setIsAvailabe(true);
         movies[1] = movieAvengers;
 
-
         Movie movieInception = new Movie("Inception", 2010, 148);
         movieInception.setDirector("Christopher Nolan");    
         movieInception.setGenre("Action");
@@ -35,7 +35,6 @@ public class Main {
         //forEach loop
         for(Movie movie : movies) {
             movie.displayMovieSpecificities();
-            System.out.println();
         }
     }
 }

@@ -1,4 +1,6 @@
-public class Movie {
+package rocha.andre.streaming.models;
+
+public class Content {
     private String name;
     private int yrOfRelease;
     private String genre;
@@ -9,9 +11,9 @@ public class Movie {
     private boolean isAvailable;
 
     static int totalMinutes = 0;
-    
 
-    public Movie(String name, int yrOfRelease, int duration) {
+
+    public Content(String name, int yrOfRelease, int duration) {
         this.name = name;
         this.yrOfRelease = yrOfRelease;
 
@@ -43,14 +45,13 @@ public class Movie {
     }
 
 
-
     public void displayMovieSpecificities() {
         System.out.println("Name: " + this.name);
         System.out.println("Year of release: " + this.yrOfRelease);
-        
-        if (this.genre != null) {         
+
+        if (this.genre != null) {
             System.out.println("Genre: " + this.genre);
-        } 
+        }
 
         if (this.director != null) {
             System.out.println("Director: " + this.director);
@@ -76,10 +77,10 @@ public class Movie {
         } else {
             System.out.println("Available: No");
         }
-    } 
+    }
 
-    public static void totalMovies(Movie[] movies) {
-        System.out.println("Total movies: " + movies.length);
+    public static void totalContents(Content[] contents) {
+        System.out.println("Total contents: " + contents.length);
     }
 
     public static void totalMinutes() {
