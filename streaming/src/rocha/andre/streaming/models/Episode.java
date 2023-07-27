@@ -42,13 +42,13 @@ public class Episode implements Classifiable {
 
     @Override
     public int getClassification() {
-        if (totalMinutes > 100) {
+        if (totalMinutes > 250) {
             return 4;
-        } else if (totalMinutes > 50) {
+        } else if (totalMinutes > 120) {
             return 3;
-        } else if (totalMinutes > 20) {
+        } else if (totalMinutes > 60) {
             return 2;
-        } else if (totalMinutes > 10) {
+        } else if (totalMinutes > 30) {
             return 1;
         } else {
             return 0;

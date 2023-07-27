@@ -27,6 +27,7 @@ public class Serie extends Content {
         displayMovieSpecificities();
         System.out.println("Number of Episodes: " + numOfEpisodes);
         System.out.println("Number of Seasons: " + numOfSeasons);
+        System.out.println("Duration of Episodes: " + durationEpisodes);
     }
 
 

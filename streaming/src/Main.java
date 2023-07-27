@@ -1,4 +1,5 @@
 import rocha.andre.streaming.calculo.CalculateTime;
+import rocha.andre.streaming.calculo.RecommendationFilter;
 import rocha.andre.streaming.models.Episode;
 import rocha.andre.streaming.models.Movie;
 import rocha.andre.streaming.models.Serie;
@@ -36,19 +37,25 @@ public class Main {
             movie.displayMovieSpecificities();
         }
 
-        Serie serieGameOfThrones = new Serie("Game of Thrones", 2011, 50,8, 6);
+
         Serie serie = new Serie("The Office", 2011, 25, 24, 9);
         serie.setDurationEpisodes(25);
-        System.out.println(serie.totalMinutes());
 
         CalculateTime calculateTime = new CalculateTime();
         calculateTime.includeMovie(movieInception);
         calculateTime.includeSerie(serie);
 
+        serie.displaySeriesSpecificities();
+
         Episode episodeOfTheOffice = new Episode();
         episodeOfTheOffice.setTotalMinutes(serie.totalMinutes());
         int note = episodeOfTheOffice.getClassification();
 
-        System.out.printf("The Office has a note of %d", note);
+        System.out.printf("The Office has a note of %d\n", note);
+
+        RecommendationFilter recommendationFilter = new RecommendationFilter();
+        recommendationFilter.filter(episodeOfTheOffice);
+
+        System.out.printf("Recommendation: %s%n", recommendationFilter.getRecommendation());
     }
 }
