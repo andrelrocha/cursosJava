@@ -32,7 +32,7 @@ public class Serie extends Content {
 
     @Override
     public int totalMinutes() {
-        return numOfSeasons * numOfEpisodes * durationEpisodes;
+        return numOfEpisodes * durationEpisodes;
     }
 
 }

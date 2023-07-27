@@ -1,14 +1,11 @@
 import rocha.andre.streaming.calculo.CalculateTime;
+import rocha.andre.streaming.models.Episode;
 import rocha.andre.streaming.models.Movie;
 import rocha.andre.streaming.models.Serie;
 
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        
+    public static void main(String[] args) {        
         Movie[] movies = new Movie[3];
 
         Movie movieBatman = new Movie("Batman Begins", 2005, 140);
@@ -39,9 +36,19 @@ public class Main {
             movie.displayMovieSpecificities();
         }
 
-        Serie serie = new Serie("Game of Thrones", 2011, 50,8, 6);
+        Serie serieGameOfThrones = new Serie("Game of Thrones", 2011, 50,8, 6);
+        Serie serie = new Serie("The Office", 2011, 25, 24, 9);
+        serie.setDurationEpisodes(25);
+        System.out.println(serie.totalMinutes());
 
         CalculateTime calculateTime = new CalculateTime();
         calculateTime.includeMovie(movieInception);
+        calculateTime.includeSerie(serie);
+
+        Episode episodeOfTheOffice = new Episode();
+        episodeOfTheOffice.setTotalMinutes(serie.totalMinutes());
+        int note = episodeOfTheOffice.getClassification();
+
+        System.out.printf("The Office has a note of %d", note);
     }
 }
