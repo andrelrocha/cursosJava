@@ -1,3 +1,5 @@
+package rocha.andre.streaming.main;
+
 import rocha.andre.streaming.models.Audio;
 import rocha.andre.streaming.models.MyFavorites;
 import rocha.andre.streaming.models.Podcast;

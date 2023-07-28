@@ -1,6 +1,6 @@
 package rocha.andre.streaming.models;
 
-public abstract class Content {
+public class Content implements Comparable<Content> {
     private String name;
     private int yrOfRelease;
     private String genre;
@@ -48,7 +48,7 @@ public abstract class Content {
         this.isAvailable = isAvailable;
     }
 
-    public void displayMovieSpecificities() {
+    public void displayContentSpecificities() {
         System.out.println("Name: " + this.name);
         System.out.println("Year of release: " + this.yrOfRelease);
 
@@ -88,5 +88,14 @@ public abstract class Content {
 
     public int totalMinutes() {
         return totalMinutes;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int compareTo(Content otherContent) {
+        return this.getName().compareTo(otherContent.getName());
     }
 }

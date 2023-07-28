@@ -24,7 +24,7 @@ public class Serie extends Content {
     }
 
     public void displaySeriesSpecificities() {
-        displayMovieSpecificities();
+        displayContentSpecificities();
         System.out.println("Number of Episodes: " + numOfEpisodes);
         System.out.println("Number of Seasons: " + numOfSeasons);
         System.out.println("Duration of Episodes: " + durationEpisodes);
@@ -34,6 +34,10 @@ public class Serie extends Content {
     @Override
     public int totalMinutes() {
         return numOfEpisodes * durationEpisodes;
+    }
+
+    public String getNumOfSeasons() {
+        return null;
     }
 
 }

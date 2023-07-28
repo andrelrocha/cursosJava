@@ -27,12 +27,5 @@ public class Podcast extends Audio {
         this.description = description;
     }
 
-    @Override
-    public double getRating() {
-        if (this.getLikes() > 100) {
-            return 10;
-        } else {
-            return 8;
-        }
-    }
+    
 }

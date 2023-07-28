@@ -1,3 +1,7 @@
+package rocha.andre.streaming.main;
+
+import java.util.ArrayList;
+
 import rocha.andre.streaming.calculo.CalculateTime;
 import rocha.andre.streaming.calculo.RecommendationFilter;
 import rocha.andre.streaming.models.Episode;
@@ -34,7 +38,7 @@ public class Main {
 
         //forEach loop
         for(Movie movie : movies) {
-            movie.displayMovieSpecificities();
+            movie.displayContentSpecificities();
         }
 
 
@@ -57,5 +61,25 @@ public class Main {
         recommendationFilter.filter(episodeOfTheOffice);
 
         System.out.printf("Recommendation: %s%n", recommendationFilter.getRecommendation());
+
+
+
+        //lista dinâmica
+        ArrayList<Movie> moviesArrayList = new ArrayList<Movie>();
+        moviesArrayList.add(movieBatman);
+        moviesArrayList.add(movieAvengers);
+        moviesArrayList.add(movieInception);
+
+        System.out.printf("first item on the list: %s%n", moviesArrayList.get(0).getName());
+
+        //lista estática
+        Movie[] moviesList = new Movie[3];
+        moviesList[0] = movieBatman;
+        moviesList[1] = movieAvengers;
+        moviesList[2] = movieInception;
+
+        for (Movie movie : moviesList) {
+            movie.displayContentSpecificities();
+        }
     }
 }

@@ -11,8 +11,16 @@ public class Movie extends Content implements Classifiable {
         super(name, yrOfRelease, duration);
     }
 
+    public String getName() {
+        return super.getName();
+    }
+
     @Override
     public int getClassification() {
         return 0;
+    }
+
+    public String getDirector() {
+        return null;
     }
 }
