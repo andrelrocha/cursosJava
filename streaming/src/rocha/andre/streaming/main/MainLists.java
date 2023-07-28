@@ -1,10 +1,9 @@
 package rocha.andre.streaming.main;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import rocha.andre.streaming.models.Content;
 import rocha.andre.streaming.models.Movie;
@@ -19,22 +18,21 @@ public class MainLists {
         Serie newSerie = new Serie("The Sopranos", 1999, 6, 86, 4);
 
 
-        ArrayList<Movie> movies = new ArrayList<Movie>();
+        List<Movie> movies = new ArrayList<>();
         movies.add(newMovie);
         movies.add(newMovie2);
         movies.add(newMovie3);
 
-        ArrayList<Content> contents = new ArrayList<Content>();
+        List<Content> contents = new ArrayList<>();
         contents.add(newMovie);
         contents.add(newMovie2);
         contents.add(newMovie3);
         contents.add(newSerie);
 
-        //ORDENANDO VALORES EM UM ARRAYLIST PERSONALIZADO {CONFERIR EM CONTENT.JAVA}
-        contents.forEach(content -> {
-            System.out.println(content.getName());
-        });
+        contents.sort(Comparator.comparing(Content::getName));
+            //ORDENANDO VALORES EM UM ARRAYLIST PERSONALIZADO {CONFERIR EM CONTENT.JAVA}
         Collections.sort(contents);
+
         contents.forEach(content -> {
             System.out.println(content.getName());
         });
