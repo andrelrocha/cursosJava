@@ -25,6 +25,10 @@ public class MainWithSearch {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         HttpClient client = HttpClient.newHttpClient();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create();
 
         List<Title> titles = new ArrayList<>();
 
@@ -52,9 +56,6 @@ public class MainWithSearch {
             String json = response.body();
             System.out.println(json);
 
-            Gson gson = new GsonBuilder()
-                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                    .create();
             //Title myTitle = gson.fromJson(json, Title.class);
             TitleOmdb myTitleOmdb = gson.fromJson(json, TitleOmdb.class);
             System.out.printf("My title before: %s", myTitleOmdb);
@@ -74,16 +75,10 @@ public class MainWithSearch {
             }
         }
 
-
-        for (Title title : titles) {
-            try (FileWriter fileWriter = new FileWriter("movies.txt", true); // 'true' to enable append mode
-                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-
-                bufferedWriter.newLine();
-                bufferedWriter.write(title.toString());
-            } catch (IOException e) {
-                System.out.println("Failed to write to the file: " + e.getMessage());
-            }
+        try (FileWriter fileWriter = new FileWriter("movies.json")) {
+            gson.toJson(titles, fileWriter);
+        } catch (IOException e) {
+            System.out.println("Failed to write to the file: " + e.getMessage());
         }
 
     }
