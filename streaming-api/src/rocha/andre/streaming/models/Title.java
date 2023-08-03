@@ -1,12 +1,10 @@
 package rocha.andre.streaming.models;
 
 
-import com.google.gson.annotations.*;
+import rocha.andre.streaming.exceptions.ErrorConversionException;
 
 public class Title implements Comparable<Title> {
-    @SerializedName("Title")
     private String name;
-    @SerializedName("Year")
     private int releaseYear;
     private boolean includedInPlan;
     private double sumOfRatings;
@@ -18,8 +16,11 @@ public class Title implements Comparable<Title> {
         this.releaseYear = releaseYear;
     }
 
-    public Title(TitleOmdb myTitleOmdb) {
+    public Title(TitleOmdb myTitleOmdb) throws ErrorConversionException {
         this.name = myTitleOmdb.title();
+        if (myTitleOmdb.year().length() > 4) {
+            throw new ErrorConversionException("Something has happened, couldn't convert the year, since its length is greater than 4");
+        }
         this.releaseYear = Integer.valueOf(myTitleOmdb.year());
         this.durationInMinutes = Integer.valueOf(myTitleOmdb.runtime().substring(0,3));
     }
