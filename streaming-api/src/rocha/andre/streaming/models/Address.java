@@ -1,68 +1,29 @@
 package rocha.andre.streaming.models;
 
 public class Address {
-    private String cep;
-    private String logradouro;
-    private String complemento;
-    private String bairro;
-    private String localidade;
-    private String uf;
+    private String zipCode;
+    private String street;
+    private String complement;
+    private String district;
+    private String city;
+    private String state;
 
-    public Address(String cep, String logradouro) {
-        this.cep = cep;
-        this.logradouro = logradouro;
+    public Address(String zipCode, String street) {
+        this.zipCode = zipCode;
+        this.street = street;
     }
 
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getLocalidade() {
-        return localidade;
-    }
-
-    public void setLocalidade(String localidade) {
-        this.localidade = localidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
+    public Address(AddressConsultaCep addressConsultaCep) {
+        this.zipCode = addressConsultaCep.cep();
+        this.street = addressConsultaCep.logradouro();
+        this.complement = addressConsultaCep.complemento();
+        this.district = addressConsultaCep.bairro();
+        this.city = addressConsultaCep.localidade();
+        this.state = addressConsultaCep.uf();
     }
 
     @Override
     public String toString() {
-        return "O endereço é " + logradouro + ", " + bairro + ", " + localidade + ", " + uf + ", ";
+        return "O endereço é " + street + ", " + district + ", " + city + ", " + state + ", ";
     }
 }

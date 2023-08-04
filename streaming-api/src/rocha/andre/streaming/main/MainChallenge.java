@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import rocha.andre.streaming.models.Address;
+import rocha.andre.streaming.models.AddressConsultaCep;
 
 public class MainChallenge {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -48,10 +49,12 @@ public class MainChallenge {
 
             String json = response.body();
 
-            Address address = gson.fromJson(json, Address.class);
+            AddressConsultaCep address = gson.fromJson(json, AddressConsultaCep.class);
+
+            Address addressUser = new Address(address);
 
             try {
-                addresses.add(address);
+                addresses.add(addressUser);
             } catch (NumberFormatException err) {
                 System.out.printf("\nSomething has happened: %s", err.getMessage());
             } catch (Exception e) {
