@@ -1,0 +1,26 @@
+[
+  {
+    "cep": "60140-120",
+    "logradouro": "Rua Carolina Sucupira",
+    "complemento": "até 1549/1550",
+    "bairro": "Aldeota",
+    "localidade": "Fortaleza",
+    "uf": "CE"
+  },
+  {
+    "cep": "60411-190",
+    "logradouro": "Rua Zózimo Barroso",
+    "complemento": "",
+    "bairro": "Fátima",
+    "localidade": "Fortaleza",
+    "uf": "CE"
+  },
+  {
+    "cep": "60125-151",
+    "logradouro": "Rua Osvaldo Cruz",
+    "complemento": "de 2071/2072 a 3198/3199",
+    "bairro": "Dionisio Torres",
+    "localidade": "Fortaleza",
+    "uf": "CE"
+  }
+]
