@@ -88,7 +88,7 @@ public class Estado {
 
     public static void main(String[] args) {
         var newState = new Estado("Ceara", "CE", 3.00, 5.30);
-        var newNewState = new Estado("SaoPaulo", "SP", 4.50, 5.20);
+        var newNewState = new Estado("SaoPaulo", "SP", 2.50, 5.20);
 
         Estado.lista(newState);
         Estado.lista(newNewState);
