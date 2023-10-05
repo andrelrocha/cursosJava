@@ -47,8 +47,7 @@ posição do alimento, e faça os dois robôs se moverem randomicamente, um de c
 até que um deles encontre o alimento. Ao final, mostre quem achou o alimento e o
 número de movimentos válidos e inválidos de cada robô.
 
-
-
+OK!///////////////////////////////////////////////////////////////////////////////////////////////
 3) Crie uma subclasse RoboInteligente que sobrescreve o método mover de forma que
 se robô fez um movimento inválido, garanta que o próximo movimento será válido.
 Neste caso, se o robô fez um movimento inválido, ele realiza outros movimentos até
@@ -57,6 +56,10 @@ Crie uma classe Main que instancie um robô normal e outro inteligente, peça ao
 para entrar com a posição do alimento, e faça os dois robôs se moverem
 randomicamente, um de cada vez, até que ambos encontrem o alimento. Ao final,
 mostre o número de movimentos que cada robô fez para encontrar o alimento.
+
+
+
+
 4) Para todos os itens anteriores, mostre os robôs se movendo na em uma matriz que
 representa a área de locomoção. Mostre também o alimento na posição indicada pelo
 usuário. Considere a área fixa de um quadrado com 5 unidades de lado.
