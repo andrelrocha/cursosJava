@@ -21,13 +21,38 @@ public class Main3 {
         var movRoboNormal = 0;
         var movRoboInteligente = 0;
 
+        int tamanhoArea = 5;
+        char[][] areaLocomocao = new char[tamanhoArea][tamanhoArea];
+        for (int i = 0; i < tamanhoArea; i++) {
+            for (int j = 0; j < tamanhoArea; j++) {
+                areaLocomocao[i][j] = ' ';
+            }
+        }
+        areaLocomocao[alimentoY][alimentoX] = 'A';
 
         while (!(roboNormal.encontrarAlimento() && roboInteligente.encontrarAlimento())) {
+            var roboNormalX = roboNormal.getX();
+            var roboNormalY = roboNormal.getY();
+            areaLocomocao[roboNormalY][roboNormalX] = 'N';
+
+            var roboInteligenteX = roboInteligente.getX();
+            var roboInteligenteY = roboInteligente.getY();
+            areaLocomocao[roboInteligenteY][roboInteligenteX] = 'I';
+
+            System.out.println("Area de Locomocao:");
+            for (int i = 0; i < tamanhoArea; i++) {
+                for (int j = 0; j < tamanhoArea; j++) {
+                    System.out.print("[" + areaLocomocao[i][j] + "]");
+                }
+                System.out.println();
+            }
+
             if(!(roboNormal.encontrarAlimento())) {
                 var direcaoRoboNormal = random.nextInt(4) + 1;
                 try {
                     roboNormal.mover(direcaoRoboNormal);
                     movRoboNormal++;
+                    areaLocomocao[roboNormalY][roboNormalX] = ' ';
                     if(roboNormal.getX() > 4) {
                         roboNormal.setX(0);
                     }
@@ -45,7 +70,7 @@ public class Main3 {
                 try {
                     roboInteligente.mover(direcaoRoboInteligente);
                     movRoboInteligente++;
-
+                    areaLocomocao[roboInteligenteY][roboInteligenteX] = ' ';
                     if(roboInteligente.getX() > 4) {
                         roboInteligente.setX(0);
                     }
@@ -57,6 +82,11 @@ public class Main3 {
                 }
             }
 
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("Robo Normal encontrou o alimento em " + movRoboNormal + " movimentos.");
