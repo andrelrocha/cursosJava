@@ -7,12 +7,8 @@ public class Main2 {
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
 
-        System.out.print("Informe a cor do robô 1: ");
-        var corRobo1 = scanner.nextLine();
-        var robo1 = new Robo(corRobo1);
-        System.out.print("Informe a cor do robô 2: ");
-        var corRobo2 = scanner.nextLine();
-        var robo2 = new Robo(corRobo2);
+        var robo1=  new Robo("Azul");
+        var robo2 = new Robo("Branco");
 
         System.out.println("Informe a coordenada x do alimento: ");
         var alimentoX = scanner.nextInt();
@@ -23,7 +19,6 @@ public class Main2 {
         var random = new Random();
 
 
-        var cont = 0;
         var movValidosRobo1 = 0;
         var movValidosRobo2 = 0;
         var movInvalidosRobo1 = 0;
@@ -59,16 +54,13 @@ public class Main2 {
                 System.out.println(e.getMessage());
             }
 
-            cont ++;
-            if (cont % 10 == 0) {
-                System.out.print("Digite 0 para parar, digite qualquer outra coisa para continuar: ");
-                var choice = scanner.nextInt();
-
-                if (choice == 0) {
-                    System.out.println("ENCERRANDO O LOOP!");
-                    break;
-                }
+            if (robo1.getX() > 4) {
+                robo1.setX(0);
             }
+            if (robo1.getY() > 4) {
+                robo1.setY(0);
+            }
+
         }
         System.out.println("Número de movimentos válidos do Robo1: " + movValidosRobo1);
         System.out.println("Número de movimentos inválidos do Robo1: " + movInvalidosRobo1);

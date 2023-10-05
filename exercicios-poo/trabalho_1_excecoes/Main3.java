@@ -20,7 +20,6 @@ public class Main3 {
 
         var movRoboNormal = 0;
         var movRoboInteligente = 0;
-        var cont = 0;
 
 
         while (!(roboNormal.encontrarAlimento() && roboInteligente.encontrarAlimento())) {
@@ -29,31 +28,35 @@ public class Main3 {
                 try {
                     roboNormal.mover(direcaoRoboNormal);
                     movRoboNormal++;
+                    if(roboNormal.getX() > 4) {
+                        roboNormal.setX(0);
+                    }
+                    if(roboNormal.getY() > 4) {
+                        roboNormal.setY(0);
+                    }
+
                 } catch (MovimentoInvalidoException e) {
                     System.out.println("RoboNormal: " + e.getMessage());
                 }
             }
 
-            if (roboInteligente.encontrarAlimento()) {
+            if (!roboInteligente.encontrarAlimento()) {
                 var direcaoRoboInteligente = random.nextInt(4) + 1;
                 try {
                     roboInteligente.mover(direcaoRoboInteligente);
                     movRoboInteligente++;
+
+                    if(roboInteligente.getX() > 4) {
+                        roboInteligente.setX(0);
+                    }
+                    if(roboInteligente.getY() > 4) {
+                        roboInteligente.setY(0);
+                    }
                 } catch (Exception e) {
                     System.out.println("Algo aconteceu enquanto o robo inteligente andava: " + e.getMessage());
                 }
             }
 
-            cont ++;
-            if (cont % 50 == 0) {
-                System.out.print("Digite 0 para parar, digite qualquer outra coisa para continuar: ");
-                var choice = scanner.nextInt();
-
-                if (choice == 0) {
-                    System.out.println("ENCERRANDO O LOOP!");
-                    break;
-                }
-            }
         }
 
         System.out.println("Robo Normal encontrou o alimento em " + movRoboNormal + " movimentos.");
