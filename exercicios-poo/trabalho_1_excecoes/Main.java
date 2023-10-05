@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
 
         System.out.print("Informe a cor do robô: ");
         var corRobo = scanner.nextLine();

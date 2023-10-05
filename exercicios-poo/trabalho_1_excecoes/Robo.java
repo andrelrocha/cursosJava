@@ -47,7 +47,7 @@ public class Robo {
         if (newX >= 0 && newY >= 0) {
             x += movX;
             y += movY;
-            System.out.printf("Nova posição: (%d, %d)", x, y);
+            System.out.printf("Nova posição robo cor %s: (%d, %d)\n", this.cor, x, y);
         } else {
             throw new MovimentoInvalidoException(newX, newY);
         }
@@ -78,7 +78,7 @@ public class Robo {
         if (newX >= 0 && newY >= 0) {
             x += movX;
             y += movY;
-            System.out.printf("Nova posição: (%d, %d)\n", x, y);
+            System.out.printf("Nova posição robo cor %s: (%d, %d)\n", this.cor, x, y);
         } else {
             throw new MovimentoInvalidoException(newX, newY);
         }

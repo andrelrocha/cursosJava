@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main2 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
 
         System.out.print("Informe a cor do robô 1: ");
         var corRobo1 = scanner.nextLine();
@@ -14,9 +14,9 @@ public class Main2 {
         var corRobo2 = scanner.nextLine();
         var robo2 = new Robo(corRobo2);
 
-        System.out.print("Informe a coordenada x do alimento: ");
+        System.out.println("Informe a coordenada x do alimento: ");
         var alimentoX = scanner.nextInt();
-        System.out.print("Informe a coordenada y do alimento: ");
+        System.out.println("Informe a coordenada y do alimento: ");
         var alimentoY = scanner.nextInt();
         Robo.setPosicaoAlimento(alimentoX, alimentoY);
 
