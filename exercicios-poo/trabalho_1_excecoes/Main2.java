@@ -18,17 +18,44 @@ public class Main2 {
 
         var random = new Random();
 
+        int tamanhoArea = 5;
+        char[][] areaLocomocao = new char[tamanhoArea][tamanhoArea];
+        for (int i = 0; i < tamanhoArea; i++) {
+            for (int j = 0; j < tamanhoArea; j++) {
+                areaLocomocao[i][j] = ' ';
+            }
+        }
+        areaLocomocao[alimentoY][alimentoX] = 'A';
+
 
         var movValidosRobo1 = 0;
         var movValidosRobo2 = 0;
         var movInvalidosRobo1 = 0;
         var movInvalidosRobo2 = 0;
         while (true) {
+            var robo1X = robo1.getX();
+            var robo1Y = robo1.getY();
+            areaLocomocao[robo1Y][robo1X] = '1';
+
+            var robo2X = robo2.getX();
+            var robo2Y = robo2.getY();
+            areaLocomocao[robo2Y][robo2X] = '2';
+
+            System.out.println("Area de Locomocao:");
+            for (int i = 0; i < tamanhoArea; i++) {
+                for (int j = 0; j < tamanhoArea; j++) {
+                    System.out.print("[" + areaLocomocao[i][j] + "]");
+                }
+                System.out.println();
+            }
+
+
             var direcaoRobo1 = random.nextInt(4) + 1;
 
             try {
                 robo1.mover(direcaoRobo1);
                 movValidosRobo1++;
+                areaLocomocao[robo1Y][robo1X] = ' ';
                 if (robo1.encontrarAlimento()) {
                     System.out.println("Robo 1 encontrou o alimento!");
                     break;
@@ -44,6 +71,7 @@ public class Main2 {
             try {
                 robo2.mover(direcaoRobo2);
                 movValidosRobo2++;
+                areaLocomocao[robo2Y][robo2X] = ' ';
                 if (robo2.encontrarAlimento()) {
                     System.out.println("Robo 2 encontrou o alimento!");
                     break;
@@ -59,6 +87,12 @@ public class Main2 {
             }
             if (robo1.getY() > 4) {
                 robo1.setY(0);
+            }
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
         }
