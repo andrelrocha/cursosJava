@@ -11,6 +11,10 @@ public class Resultado {
     public Resultado(ListaResposta lista) {
         this.listaResposta = lista;
     }
+    private ListaAlunos listaAlunos;
+    public Resultado(ListaAlunos lista) {
+        this.listaAlunos = lista;
+    }
 
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
@@ -25,8 +29,19 @@ public class Resultado {
         }
 
         var listaResposta = new ListaResposta();
-        var repostasLista = listaResposta.criaListaRespostas(gabaritoFile);
+        var respostasLista = listaResposta.criaListaRespostas(gabaritoFile);
 
+        var pathAlunos = "notas/" + disciplina + ".txt";
+        var alunosFile = new File(pathAlunos);
+
+        var listaAluno = new ListaAlunos();
+        var alunos = listaAluno.listaNotasAlunos(alunosFile, respostasLista);
+
+        //LOGICA DE CRIAR ARQUIVO COM O NOME E A PONTUAÇÃO, ORDENADO POR ORDEM ALFABETICA
+        //LOGICADE CRIAR ARQUIVO COM O NOME E A PONTUAÇÃO, ORDENADO POR ORDEM DESCRESCENTE DE NOTA, COM A LINHA FINAL
+        //SENDO A MÉDIA DA TURMA.
+
+        //CASO TODAS AS RESPOSTAS SEJAM V OU F , A NOTA É 0
     }
 
 
