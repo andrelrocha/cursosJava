@@ -34,13 +34,20 @@ public class PontuacaoDecrescente {
             var fileWriter = new FileWriter(path);
             var buffWriter = new BufferedWriter(fileWriter);
 
+            float notaTotal = 0;
+
             for (Aluno a : alunos) {
                 var pontAluno = pontuacao.calcularPontuacao(a, listaRespostas);
+                notaTotal += pontAluno;
+
                 var linha = a.getNome() + "\t" + pontAluno;
 
                 buffWriter.write(linha);
                 buffWriter.newLine();
             }
+
+            var media = notaTotal / alunos.size();
+            buffWriter.write("Média da turma: " + media);
 
             buffWriter.close();
         } catch (IOException e) {

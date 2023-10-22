@@ -2,3 +2,4 @@ lucas	10
 zuado	10
 andre	5
 diamba	0
+Média da turma: 6.25
