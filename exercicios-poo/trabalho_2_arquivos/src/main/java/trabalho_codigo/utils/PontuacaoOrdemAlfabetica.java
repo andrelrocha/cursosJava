@@ -14,6 +14,19 @@ public class PontuacaoOrdemAlfabetica {
     public void OrdenaAlunosAlfabeto(ArrayList<Aluno> alunos, ArrayList<String> listaRespostas, String disciplina) {
         var pontuacao = new CalculaPontuacao();
 
+        for (int i = 0; i < alunos.size(); i++) {
+            for (int j = 0; (j < alunos.size() - 1); j++) {
+                var alunoAtual = alunos.get(j);
+                var proximoAluno = alunos.get(j + 1);
+
+                if (alunoAtual.getNome().compareTo(proximoAluno.getNome()) > 0) {
+                    var temp = alunos.get(j);
+                    alunos.set(j, alunos.get(j + 1));
+                    alunos.set(j + 1, temp);
+                }
+            }
+        }
+
         try {
             var path = "notasOrdemAlfabetico/" + disciplina + ".txt";
             var fileWriter = new FileWriter(path);
@@ -21,7 +34,6 @@ public class PontuacaoOrdemAlfabetica {
 
             for (Aluno a : alunos) {
                 var pontAluno = pontuacao.calcularPontuacao(a, listaRespostas);
-                System.out.println(pontAluno);
                 var linha = a.getNome() + "\t" + pontAluno;
 
                 buffWriter.write(linha);
@@ -32,5 +44,7 @@ public class PontuacaoOrdemAlfabetica {
         } catch (IOException e) {
             throw new RuntimeException("Algo aconteceu: " + e.getMessage());
         }
+
+
     }
 }
