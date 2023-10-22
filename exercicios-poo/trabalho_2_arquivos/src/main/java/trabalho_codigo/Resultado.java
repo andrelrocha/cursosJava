@@ -1,9 +1,6 @@
 package trabalho_codigo;
 
-import trabalho_codigo.utils.CalculaPontuacao;
-import trabalho_codigo.utils.ListaAlunos;
-import trabalho_codigo.utils.ListaResposta;
-import trabalho_codigo.utils.PontuacaoOrdemAlfabetica;
+import trabalho_codigo.utils.*;
 
 import java.io.File;
 import java.util.*;
@@ -25,6 +22,11 @@ public class Resultado {
     private CalculaPontuacao calculaPontuacao;
     public Resultado(CalculaPontuacao calculaPontuacao) {
         this.calculaPontuacao = calculaPontuacao;
+    }
+
+    private PontuacaoDecrescente pontuacaoDecrescente;
+    public Resultado(PontuacaoDecrescente pontuacao) {
+        this.pontuacaoDecrescente = pontuacao;
     }
 
     public static void main(String[] args) {
@@ -52,8 +54,10 @@ public class Resultado {
         var listaAlunosAlfabetica = new PontuacaoOrdemAlfabetica(pontuacao);
         listaAlunosAlfabetica.OrdenaAlunosAlfabeto(alunos, respostasLista, disciplina);
 
-        //LOGICADE CRIAR ARQUIVO COM O NOME E A PONTUAÇÃO, ORDENADO POR ORDEM DESCRESCENTE DE NOTA, COM A LINHA FINAL
-        //SENDO A MÉDIA DA TURMA.
+        var listaAlunosNotasDecrescente = new PontuacaoDecrescente(pontuacao);
+        listaAlunosNotasDecrescente.ordenaAlunosPontDecrescente(alunos, respostasLista, disciplina);
+
+        //LINHA FINAL DO ARQUIVO TEM QUE SER A MÉDIA DA TURMA
 
         //CASO TODAS AS RESPOSTAS SEJAM V OU F , A NOTA É 0
     }
