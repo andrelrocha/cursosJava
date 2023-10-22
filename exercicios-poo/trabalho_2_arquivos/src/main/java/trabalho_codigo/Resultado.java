@@ -57,10 +57,5 @@ public class Resultado {
         var listaAlunosNotasDecrescente = new PontuacaoDecrescente(pontuacao);
         listaAlunosNotasDecrescente.ordenaAlunosPontDecrescente(alunos, respostasLista, disciplina);
 
-        //LINHA FINAL DO ARQUIVO TEM QUE SER A MÉDIA DA TURMA
-
-        //CASO TODAS AS RESPOSTAS SEJAM V OU F , A NOTA É 0
     }
-
-
 }
