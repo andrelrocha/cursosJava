@@ -35,16 +35,19 @@ public class SalvaNota {
 
                     for (int i = 0; i < 10; i++) {
                         System.out.printf("%dª questão: ", i+1);
-                        var resposta = scanner.next();
+                        var resposta = scanner.next().toUpperCase();
 
                         if (resposta.equals("sair")) {
                             sair = true;
                             break;
                         }
 
-                        var respostaCaractere = resposta.charAt(0);
-
-                        respostas += respostaCaractere;
+                        if (resposta.equals("V") || resposta.equals("F")) {
+                            respostas += resposta;
+                        } else {
+                            System.out.println("Resposta inválida. Digite 'V' ou 'F'.");
+                            i--;
+                        }
                     }
                     if (sair == true) {
                         break;

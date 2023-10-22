@@ -1,17 +1,17 @@
-package trabalho_codigo;
+package trabalho_codigo.utils;
 
 import java.util.ArrayList;
 
 public class Aluno {
-    private ArrayList<Character> respostas;
+    private ArrayList<String> respostas;
     private String nome;
 
 
-    public ArrayList<Character> getRespostas() {
+    public ArrayList<String> getRespostas() {
         return respostas;
     }
 
-    public void setRespostas(ArrayList<Character> respostas) {
+    public void setRespostas(ArrayList<String> respostas) {
         this.respostas = respostas;
     }
 

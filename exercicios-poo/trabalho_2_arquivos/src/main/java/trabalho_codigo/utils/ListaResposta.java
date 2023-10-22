@@ -1,4 +1,4 @@
-package trabalho_codigo;
+package trabalho_codigo.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ListaResposta {
-    public ArrayList<Object> criaListaRespostas(File gabaritoFile) {
+    public ArrayList<String> criaListaRespostas(File gabaritoFile) {
         try {
             var leitor = new BufferedReader(new FileReader(gabaritoFile));
             var linha = "";
-            var respostas = new ArrayList<>();
+            var respostas = new ArrayList<String>();
 
             while ((linha = leitor.readLine()) != null) {
                 for (char c : linha.toCharArray()) {

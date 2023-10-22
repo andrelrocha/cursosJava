@@ -1,9 +1,11 @@
 package trabalho_codigo;
 
-import java.io.BufferedReader;
+import trabalho_codigo.utils.CalculaPontuacao;
+import trabalho_codigo.utils.ListaAlunos;
+import trabalho_codigo.utils.ListaResposta;
+import trabalho_codigo.utils.PontuacaoOrdemAlfabetica;
+
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 
 public class Resultado {
@@ -14,6 +16,15 @@ public class Resultado {
     private ListaAlunos listaAlunos;
     public Resultado(ListaAlunos lista) {
         this.listaAlunos = lista;
+    }
+
+    private PontuacaoOrdemAlfabetica pontuacaoOrdemAlfabetica;
+    public Resultado(PontuacaoOrdemAlfabetica pontuacao) {
+        this.pontuacaoOrdemAlfabetica = pontuacao;
+    }
+    private CalculaPontuacao calculaPontuacao;
+    public Resultado(CalculaPontuacao calculaPontuacao) {
+        this.calculaPontuacao = calculaPontuacao;
     }
 
     public static void main(String[] args) {
@@ -37,7 +48,10 @@ public class Resultado {
         var listaAluno = new ListaAlunos();
         var alunos = listaAluno.listaNotasAlunos(alunosFile, respostasLista);
 
-        //LOGICA DE CRIAR ARQUIVO COM O NOME E A PONTUAÇÃO, ORDENADO POR ORDEM ALFABETICA
+        var pontuacao = new CalculaPontuacao();
+        var listaAlunosAlfabetica = new PontuacaoOrdemAlfabetica(pontuacao);
+        listaAlunosAlfabetica.OrdenaAlunosAlfabeto(alunos, respostasLista, disciplina);
+
         //LOGICADE CRIAR ARQUIVO COM O NOME E A PONTUAÇÃO, ORDENADO POR ORDEM DESCRESCENTE DE NOTA, COM A LINHA FINAL
         //SENDO A MÉDIA DA TURMA.
 
