@@ -29,6 +29,11 @@ public class Resultado {
         this.pontuacaoDecrescente = pontuacao;
     }
 
+    private ImprimeTXT imprimeTXT;
+    public Resultado(ImprimeTXT imprime) {
+        this.imprimeTXT = imprime;
+    }
+
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
         System.out.print("Digite o nome da disciplina: ");
@@ -56,6 +61,10 @@ public class Resultado {
 
         var listaAlunosNotasDecrescente = new PontuacaoDecrescente(pontuacao);
         listaAlunosNotasDecrescente.ordenaAlunosPontDecrescente(alunos, respostasLista, disciplina);
+
+        var imprimeTxt = new ImprimeTXT();
+        imprimeTxt.imprimeConteudoTXT("/notasOrdemAlfabetico/" + disciplina  + ".txt");
+        imprimeTxt.imprimeConteudoTXT("/notasOrdemDecrescente" + disciplina + ".txt");
 
     }
 }

@@ -1,5 +1,0 @@
-lucas	10
-zuado	10
-andre	0
-diamba	0
-Média da turma: 5.0
