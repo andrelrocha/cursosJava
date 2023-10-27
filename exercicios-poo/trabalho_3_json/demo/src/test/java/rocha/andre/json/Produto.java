@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Random;
 
 @Component
 public class Produto {
-    private static int cont = 0;
     private int id;
     private String nome;
     private String descricao;
@@ -16,8 +16,8 @@ public class Produto {
     private int quantidade;
 
     public Produto() {
-        this.id = cont;
-        cont++;
+        var random = new Random();
+        this.id = random.nextInt(1000) + 1;
     }
 
     public int getId() {

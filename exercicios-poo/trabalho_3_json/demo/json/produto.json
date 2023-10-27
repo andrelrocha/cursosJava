@@ -1,1 +1,5 @@
-{"id":1,"nome":"maconha","descricao":"droga","preco":10.4,"quantidade":20}
+[{"id":153,"nome":"mac0onha","descricao":"top demais","preco":20.0,"quantidade":2},
+  {"id":9,"nome":"lolo","descricao":"aa","preco":10.0,"quantidade":50},
+  {"id":801,"nome":"droga","descricao":"droga","preco":10.0,"quantidade":20},
+  {"id":86,"nome":"teste","descricao":"teste","preco":10.0,"quantidade":10}
+]

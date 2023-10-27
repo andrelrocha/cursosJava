@@ -1,12 +1,12 @@
 package rocha.andre.json;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
+import com.google.gson.Gson;
 
 @Component
 public class CriarProduto {
@@ -15,19 +15,31 @@ public class CriarProduto {
             var produto = new Produto();
             solicitarInformacoesAoUsuario(produto);
 
-            var json = produto.toJson();
+            Gson gson = new Gson();
+            JsonArray jsonArray;
 
             var file = new File("json/produto.json");
 
+            try {
+                Reader reader = new FileReader(file);
+                jsonArray = gson.fromJson(reader, JsonArray.class);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                throw new RuntimeException("Erro ao ler o arquivo JSON");
+            }
+
+
+            var jsonNovoProduto = produto.toJson();
+            jsonArray.add(gson.fromJson(jsonNovoProduto, JsonObject.class));
+
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                writer.write(json);
+                writer.write(gson.toJson(jsonArray));
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new RuntimeException("Erro ao escrever o arquivo JSON");
             }
 
-            System.out.println("JSON: " + json);
-            System.out.println("Produto salvo em 'produto.json'");
+            System.out.println("JSON: " + jsonNovoProduto);
         } catch (RuntimeException e) {
             e.printStackTrace();
             throw new RuntimeException("Algo aconteceu");
