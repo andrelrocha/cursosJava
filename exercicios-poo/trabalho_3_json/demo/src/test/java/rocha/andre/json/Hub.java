@@ -9,12 +9,18 @@ public class Hub {
     private CriarProduto criarProduto;
     @Autowired
     private EditarProduto editarProduto;
+    @Autowired
+    private Carrinho carrinho;
 
     public static void main(String[] args) {
+        /*
         var criarProduto = new CriarProduto();
         criarProduto.criarProduto();
 
         var editarProduto = new EditarProduto();
         editarProduto.editarProduto();
+        */
+         var carrinho = new Carrinho();
+         carrinho.executar();
     }
 }
