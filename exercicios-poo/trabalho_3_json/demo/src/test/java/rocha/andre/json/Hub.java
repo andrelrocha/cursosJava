@@ -2,10 +2,7 @@ package rocha.andre.json;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import rocha.andre.json.utils.Carrinho;
-import rocha.andre.json.utils.CriarProduto;
-import rocha.andre.json.utils.EditarProduto;
-import rocha.andre.json.utils.PagamentoCompra;
+import rocha.andre.json.utils.*;
 
 import java.util.Scanner;
 
@@ -19,6 +16,8 @@ public class Hub {
     private Carrinho carrinho;
     @Autowired
     private PagamentoCompra pagamentoCompra;
+    @Autowired
+    private AtualizaEstoque atualizaEstoque;
 
     public static void main(String[] args) {
         System.out.println("Você é cliente ou adminstrador?\n");
@@ -28,33 +27,43 @@ public class Hub {
         if (user.equals("administrador")) {
             while(true) {
                 System.out.println("Digite o numero da operação desejada ou 'sair'\n");
-                System.out.println();
-                var esc = scanner.nextInt();
+                System.out.println("1-criar produto\n2-editar produto");
+                var entrada = scanner.nextLine();
 
-                switch (esc) {
-                    case 1:
-                        var criarProduto = new CriarProduto();
-                        criarProduto.criarProduto();
-                        break;
+                if (entrada.equalsIgnoreCase("sair")) {
+                    break;
+                }
 
-                    case 2:
-                        var editarProduto = new EditarProduto();
-                        editarProduto.editarProduto();
-                        break;
+                if (entrada.matches("\\d+")) {
+                    int esc = Integer.parseInt(entrada);
 
-                    case 3:
-                        //CASE PARA DELETAR UM PRODUTO
-                        System.out.println("Opção 3 selecionada.");
-                        break;
+                    switch (esc) {
+                        case 1:
+                            var criarProduto = new CriarProduto();
+                            criarProduto.criarProduto();
+                            break;
 
-                    case 4:
-                        //CASE PARA LISTAR COMPRAS
-                        System.out.println("Opção 3 selecionada.");
-                        break;
+                        case 2:
+                            var editarProduto = new EditarProduto();
+                            editarProduto.editarProduto();
+                            break;
 
-                    default:
-                        System.out.println("Opção inválida.");
-                        break;
+                        case 3:
+                            // CASE PARA DELETAR UM PRODUTO
+                            System.out.println("Opção 3 selecionada.");
+                            break;
+
+                        case 4:
+                            // CASE PARA LISTAR COMPRAS
+                            System.out.println("Opção 4 selecionada.");
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida.");
+                            break;
+                    }
+                } else {
+                    System.out.println("Digite um número válido ou 'sair'.");
                 }
             }
         }
@@ -65,6 +74,9 @@ public class Hub {
 
             var pagamento = new PagamentoCompra();
             pagamento.pagamento();
+
+            var atualizarEstoque = new AtualizaEstoque();
+            atualizarEstoque.atualizarEstoque();
         }
     }
 }

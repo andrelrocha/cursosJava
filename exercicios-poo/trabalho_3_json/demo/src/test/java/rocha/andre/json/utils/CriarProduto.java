@@ -1,5 +1,6 @@
 package rocha.andre.json.utils;
 
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.springframework.stereotype.Component;
@@ -22,7 +23,7 @@ public class CriarProduto {
             var file = new File("json/produto.json");
 
             try {
-                Reader reader = new FileReader(file);
+                var reader = new FileReader(file);
                 jsonArray = gson.fromJson(reader, JsonArray.class);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -34,7 +35,7 @@ public class CriarProduto {
             jsonArray.add(gson.fromJson(jsonNovoProduto, JsonObject.class));
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                writer.write(gson.toJson(jsonArray));
+                writer.write(new GsonBuilder().setPrettyPrinting().create().toJson(jsonArray));
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new RuntimeException("Erro ao escrever o arquivo JSON");
