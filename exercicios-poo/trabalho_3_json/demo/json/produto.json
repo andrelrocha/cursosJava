@@ -14,25 +14,11 @@
     "quantidade": 6
   },
   {
-    "id": 801,
-    "nome": "droga",
-    "descricao": "droga",
-    "preco": 10.0,
-    "quantidade": 14
-  },
-  {
     "id": 86,
     "nome": "teste",
     "descricao": "teste",
     "preco": 10.0,
     "quantidade": 1
-  },
-  {
-    "id": 309,
-    "nome": "armas",
-    "descricao": "teste",
-    "preco": 10.0,
-    "quantidade": 7
   },
   {
     "id": 813,
@@ -61,5 +47,19 @@
     "descricao": "ruim",
     "preco": 100.0,
     "quantidade": 1
+  },
+  {
+    "id": 471,
+    "nome": "notebook",
+    "descricao": "asus",
+    "preco": 500.0,
+    "quantidade": 50
+  },
+  {
+    "id": 414,
+    "nome": "xbox",
+    "descricao": "jogos",
+    "preco": 2000.0,
+    "quantidade": 5
   }
 ]

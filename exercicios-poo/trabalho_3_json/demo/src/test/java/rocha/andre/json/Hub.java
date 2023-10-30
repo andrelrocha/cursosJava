@@ -1,6 +1,7 @@
 package rocha.andre.json;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import rocha.andre.json.utils.admin.ApagarProduto;
 import rocha.andre.json.utils.admin.CriarProduto;
 import rocha.andre.json.utils.admin.EditarProduto;
 import rocha.andre.json.utils.admin.ListarCompras;
@@ -9,6 +10,7 @@ import rocha.andre.json.utils.client.Carrinho;
 import rocha.andre.json.utils.client.PagamentoCompra;
 import rocha.andre.json.utils.client.RegistroCompra;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -29,7 +31,7 @@ public class Hub {
 
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Você é cliente ou administrador?\n");
         Scanner scanner = new Scanner(System.in);
         var user = scanner.nextLine();
@@ -49,18 +51,18 @@ public class Hub {
 
                     switch (esc) {
                         case 1:
-                            var criarProduto = new CriarProduto();
-                            criarProduto.criarProduto();
+                            var criaProduto = new CriarProduto();
+                            criaProduto.criarProduto();
                             break;
 
                         case 2:
-                            var editarProduto = new EditarProduto();
-                            editarProduto.editarProduto();
+                            var editaProduto = new EditarProduto();
+                            editaProduto.editarProduto();
                             break;
 
                         case 3:
-                            // CASE PARA DELETAR UM PRODUTO
-                            System.out.println("Opção 3 selecionada.");
+                            var apagaProduto = new ApagarProduto();
+                            apagaProduto.apagarProduto();
                             break;
 
                         case 4:

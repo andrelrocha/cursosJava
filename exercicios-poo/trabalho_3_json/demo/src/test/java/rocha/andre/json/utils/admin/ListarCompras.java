@@ -10,7 +10,6 @@ import rocha.andre.json.DTO.PedidoSimplificadoDTO;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @Component
 public class ListarCompras {
@@ -29,9 +28,12 @@ public class ListarCompras {
             throw new RuntimeException("Erro ao ler o arquivo JSON");
         }
 
+        double totalCompras = 0;
         for (JsonElement element : jsonArray) {
             PedidoSimplificadoDTO pedido = gson.fromJson(element, PedidoSimplificadoDTO.class);
             System.out.println(pedido + "\n");
+            totalCompras += pedido.getValorComDesconto();
         }
+        System.out.printf("Valor total das compras: R$ %d\n", totalCompras);
     }
 }

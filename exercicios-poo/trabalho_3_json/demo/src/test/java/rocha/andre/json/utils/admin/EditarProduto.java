@@ -1,6 +1,7 @@
 package rocha.andre.json.utils.admin;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.stereotype.Component;
 import rocha.andre.json.Produto;
@@ -14,7 +15,6 @@ import java.util.Scanner;
 public class EditarProduto {
     public void editarProduto() {
         try {
-            // Lê o arquivo JSON existente
             File file = new File("json/produto.json");
             List<Produto> produtos = lerProdutos(file);
 
@@ -23,12 +23,10 @@ public class EditarProduto {
                 return;
             }
 
-            // Solicita o nome do produto que o usuário deseja editar
             Scanner scanner = new Scanner(System.in);
             System.out.println("Digite o nome do produto que deseja editar: ");
             String nomeProduto = scanner.nextLine();
 
-            // Encontra o produto pelo nome
             Produto produtoParaEditar = null;
             for (Produto produto : produtos) {
                 if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
@@ -76,8 +74,8 @@ public class EditarProduto {
         return produtos;
     }
 
-    private void escreverProdutos(File file, List<Produto> produtos) throws IOException {
-        Gson gson = new Gson();
+    private void escreverProdutos(File file, List<Produto> produtos) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(gson.toJson(produtos));
         } catch (IOException e) {
