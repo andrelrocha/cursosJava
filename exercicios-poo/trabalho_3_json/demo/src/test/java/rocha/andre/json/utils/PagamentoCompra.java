@@ -43,6 +43,9 @@ public class PagamentoCompra {
             System.out.println(item.getNome() + " - Quantidade: " + item.getQuantidadeDesejada() + " - Preço: R$" + item.getPreco());
         }
 
+        compra.setValorSemDesconto(total);
+        compra.setValorComDesconto(valorFinalComDesconto);
+
         System.out.println("Preço Total da Compra: R$" + total);
         System.out.println("Preço Final a Pagar: R$" + valorFinalComDesconto);
 

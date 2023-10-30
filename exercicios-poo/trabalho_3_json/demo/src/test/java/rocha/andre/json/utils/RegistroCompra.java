@@ -55,6 +55,9 @@ public class RegistroCompra {
         jsonCompra.addProperty("id", compra.getId());
         jsonCompra.addProperty("dataHora", compra.getDataHora().toString());
         jsonCompra.addProperty("nome", compra.getNome());
+        jsonCompra.addProperty("valorSemDesconto", compra.getValorSemDesconto());
+        jsonCompra.addProperty("valorComDesconto", compra.getValorComDesconto());
+
 
         JsonArray itensCarrinho = new JsonArray();
         compra.getItensCarrinho().forEach(item -> {

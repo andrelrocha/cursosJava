@@ -1,39 +1,43 @@
 [
   {
-    "id": 279,
-    "dataHora": "2023-10-30T14:47:31.428128100",
-    "nome": "andre",
+    "id": 98,
+    "dataHora": "2023-10-30T14:57:19.917613700",
+    "nome": "andre lucio",
+    "valorSemDesconto": 110.0,
+    "valorComDesconto": 99.0,
     "itensCarrinho": [
       {
-        "nome": "lolo",
+        "nome": "armas",
         "quantidade": 1,
         "preco": 10.0,
         "precoFinal": 9.0
       },
       {
-        "nome": "droga",
+        "nome": "celular",
         "quantidade": 1,
-        "preco": 10.0,
-        "precoFinal": 9.0
+        "preco": 100.0,
+        "precoFinal": 90.0
       }
     ]
   },
   {
-    "id": 704,
-    "dataHora": "2023-10-30T14:50:09.263130600",
-    "nome": "lucio",
+    "id": 864,
+    "dataHora": "2023-10-30T14:58:36.438914800",
+    "nome": "andre",
+    "valorSemDesconto": 59.0,
+    "valorComDesconto": 59.0,
     "itensCarrinho": [
+      {
+        "nome": "diamba",
+        "quantidade": 2,
+        "preco": 22.0,
+        "precoFinal": 19.8
+      },
       {
         "nome": "pao",
         "quantidade": 1,
         "preco": 15.0,
         "precoFinal": 13.5
-      },
-      {
-        "nome": "cocaina",
-        "quantidade": 1,
-        "preco": 8.5,
-        "precoFinal": 7.65
       }
     ]
   }

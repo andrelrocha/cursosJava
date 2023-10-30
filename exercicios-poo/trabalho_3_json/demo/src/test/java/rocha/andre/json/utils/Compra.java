@@ -1,6 +1,5 @@
 package rocha.andre.json.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
 
@@ -15,6 +14,10 @@ public class Compra {
     private LocalDateTime dataHora;
     private String nome;
     private ArrayList<ItemCompraDTO> itensCarrinho;
+
+
+    private double valorSemDesconto;
+    private double valorComDesconto;
 
 
     public Compra(String nome, LocalDateTime dataHora) {
@@ -65,6 +68,22 @@ public class Compra {
 
     public ArrayList<ItemCompraDTO> getItensCarrinho() {
         return itensCarrinho;
+    }
+
+    public double getValorSemDesconto() {
+        return valorSemDesconto;
+    }
+
+    public void setValorSemDesconto(double valorSemDesconto) {
+        this.valorSemDesconto = valorSemDesconto;
+    }
+
+    public double getValorComDesconto() {
+        return valorComDesconto;
+    }
+
+    public void setValorComDesconto(double valorComDesconto) {
+        this.valorComDesconto = valorComDesconto;
     }
 
 }
