@@ -1,10 +1,11 @@
-package rocha.andre.json.utils;
+package rocha.andre.json.utils.client;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
+import rocha.andre.json.utils.client.Compra;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ import java.util.Scanner;
 
 @Component
 public class PagamentoCompra {
-    public Compra  pagamento() {
+    public Compra pagamento() {
         var scanner = new Scanner(System.in);
         System.out.println("Qual o seu nome?");
         String nome = scanner.nextLine();

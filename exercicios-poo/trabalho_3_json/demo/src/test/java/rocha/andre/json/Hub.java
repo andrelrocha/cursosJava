@@ -1,8 +1,13 @@
 package rocha.andre.json;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import rocha.andre.json.utils.*;
+import rocha.andre.json.utils.admin.CriarProduto;
+import rocha.andre.json.utils.admin.EditarProduto;
+import rocha.andre.json.utils.admin.ListarCompras;
+import rocha.andre.json.utils.client.AtualizaEstoque;
+import rocha.andre.json.utils.client.Carrinho;
+import rocha.andre.json.utils.client.PagamentoCompra;
+import rocha.andre.json.utils.client.RegistroCompra;
 
 import java.util.Scanner;
 
@@ -25,14 +30,14 @@ public class Hub {
      */
 
     public static void main(String[] args) {
-        System.out.println("Você é cliente ou adminstrador?\n");
+        System.out.println("Você é cliente ou administrador?\n");
         Scanner scanner = new Scanner(System.in);
         var user = scanner.nextLine();
 
         if (user.equals("administrador")) {
             while(true) {
                 System.out.println("Digite o numero da operação desejada ou 'sair'\n");
-                System.out.println("1-criar produto\n2-editar produto");
+                System.out.println("1-criar produto\n2-editar produto\n3-apagar produto\n4-listar compras\n");
                 var entrada = scanner.nextLine();
 
                 if (entrada.equalsIgnoreCase("sair")) {
@@ -59,8 +64,8 @@ public class Hub {
                             break;
 
                         case 4:
-                            // CASE PARA LISTAR COMPRAS
-                            System.out.println("Opção 4 selecionada.");
+                            var listaCompras = new ListarCompras();
+                            listaCompras.listarCompras();
                             break;
 
                         default:

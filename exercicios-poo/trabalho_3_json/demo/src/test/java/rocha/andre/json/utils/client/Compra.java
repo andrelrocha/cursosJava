@@ -1,13 +1,18 @@
-package rocha.andre.json.utils;
+package rocha.andre.json.utils.client;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @Component
+@NoArgsConstructor
 public class Compra {
 
     private int id;
@@ -26,6 +31,19 @@ public class Compra {
         this.dataHora = dataHora;
         this.nome = nome;
         this.itensCarrinho = new ArrayList<>();
+    }
+
+    @JsonCreator
+    public Compra(@JsonProperty("id") int id, @JsonProperty("dataHora") LocalDateTime dataHora,
+                  @JsonProperty("nome") String nome, @JsonProperty("valorSemDesconto") double valorSemDesconto,
+                  @JsonProperty("valorComDesconto") double valorComDesconto,
+                  @JsonProperty("itensCarrinho") ArrayList<ItemCompraDTO> itensCarrinho) {
+        this.id = id;
+        this.dataHora = dataHora;
+        this.nome = nome;
+        this.valorSemDesconto = valorSemDesconto;
+        this.valorComDesconto = valorComDesconto;
+        this.itensCarrinho = itensCarrinho;
     }
 
     public void adicionarItem(ItemCompraDTO item) {

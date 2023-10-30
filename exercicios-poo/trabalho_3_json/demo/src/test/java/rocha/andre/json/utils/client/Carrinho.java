@@ -1,4 +1,4 @@
-package rocha.andre.json.utils;
+package rocha.andre.json.utils.client;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

@@ -1,4 +1,4 @@
-package rocha.andre.json.utils;
+package rocha.andre.json.utils.client;
 
 import com.google.gson.*;
 import org.springframework.stereotype.Component;

@@ -1,15 +1,13 @@
-package rocha.andre.json.utils;
+package rocha.andre.json.utils.client;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.springframework.stereotype.Component;
+import rocha.andre.json.utils.client.Compra;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Component
