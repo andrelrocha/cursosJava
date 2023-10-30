@@ -3,6 +3,7 @@ package rocha.andre.json.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
 import rocha.andre.json.Produto;
 
@@ -10,7 +11,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+@Component
 public class Carrinho {
+
     public void executar() {
         ArrayList<Produto> produtos = carregarProdutosDoJSON();
 
@@ -53,7 +56,7 @@ public class Carrinho {
                 continue;
             }
 
-            carrinho.add(new ItemCompraDTO(produtoSelecionado.getNome(), produtoSelecionado.getPreco(), quantidadeDesejada));
+            carrinho.add(new ItemCompraDTO(produtoSelecionado.getNome(), produtoSelecionado.getPreco(), produtoSelecionado.getPreco(), quantidadeDesejada));
 
             System.out.println("Produto adicionado ao carrinho.");
         }

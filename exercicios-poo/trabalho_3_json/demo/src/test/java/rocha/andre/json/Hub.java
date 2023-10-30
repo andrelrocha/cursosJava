@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class Hub {
+    /*
     @Autowired
     private CriarProduto criarProduto;
     @Autowired
@@ -18,6 +19,10 @@ public class Hub {
     private PagamentoCompra pagamentoCompra;
     @Autowired
     private AtualizaEstoque atualizaEstoque;
+    @Autowired
+    private RegistroCompra registroCompra;
+
+     */
 
     public static void main(String[] args) {
         System.out.println("Você é cliente ou adminstrador?\n");
@@ -73,10 +78,12 @@ public class Hub {
             carrinho.executar();
 
             var pagamento = new PagamentoCompra();
-            pagamento.pagamento();
+            var compra = pagamento.pagamento();
 
             var atualizarEstoque = new AtualizaEstoque();
             atualizarEstoque.atualizarEstoque();
+
+
         }
     }
 }

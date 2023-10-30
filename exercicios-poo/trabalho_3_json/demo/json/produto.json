@@ -11,7 +11,7 @@
     "nome": "lolo",
     "descricao": "abc",
     "preco": 10.0,
-    "quantidade": 50
+    "quantidade": 14
   },
   {
     "id": 801,
@@ -25,7 +25,7 @@
     "nome": "teste",
     "descricao": "teste",
     "preco": 10.0,
-    "quantidade": 10
+    "quantidade": 3
   },
   {
     "id": 309,
@@ -39,27 +39,27 @@
     "nome": "pao",
     "descricao": "pao pra comer",
     "preco": 15.0,
-    "quantidade": 10
+    "quantidade": 8
   },
   {
     "id": 288,
     "nome": "cocaina",
     "descricao": "bom",
     "preco": 8.5,
-    "quantidade": 50
+    "quantidade": 45
   },
   {
     "id": 853,
     "nome": "elden ring",
     "descricao": "top",
     "preco": 300.0,
-    "quantidade": 5
+    "quantidade": 3
   },
   {
     "id": 910,
     "nome": "celular",
     "descricao": "ruim",
     "preco": 100.0,
-    "quantidade": 2
+    "quantidade": 0
   }
 ]

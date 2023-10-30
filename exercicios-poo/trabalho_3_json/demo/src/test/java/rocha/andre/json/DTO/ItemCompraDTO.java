@@ -3,11 +3,14 @@ package rocha.andre.json.DTO;
 public class ItemCompraDTO {
     private String nome;
     private double preco;
+
+    private double precoFinal;
     private int quantidadeDesejada;
 
-    public ItemCompraDTO(String nome, double preco, int quantidadeDesejada) {
+    public ItemCompraDTO(String nome, double preco, double precoDesconto, int quantidadeDesejada) {
         this.nome = nome;
         this.preco = preco;
+        this.precoFinal = precoDesconto;
         this.quantidadeDesejada = quantidadeDesejada;
     }
 
@@ -33,6 +36,14 @@ public class ItemCompraDTO {
 
     public void setQuantidadeDesejada(int quantidadeDesejada) {
         this.quantidadeDesejada = quantidadeDesejada;
+    }
+
+    public double getPrecoFinal() {
+        return precoFinal;
+    }
+
+    public void setPrecoFinal(double precoFinal) {
+        this.precoFinal = precoFinal;
     }
 
 }

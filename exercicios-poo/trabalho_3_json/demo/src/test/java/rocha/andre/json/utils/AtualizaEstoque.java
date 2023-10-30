@@ -1,11 +1,13 @@
 package rocha.andre.json.utils;
 
 import com.google.gson.*;
+import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
 
 import java.io.*;
 import java.util.ArrayList;
 
+@Component
 public class AtualizaEstoque {
 
     public void atualizarEstoque() {

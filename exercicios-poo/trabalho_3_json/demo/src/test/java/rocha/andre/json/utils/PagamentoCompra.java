@@ -3,37 +3,51 @@ package rocha.andre.json.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+@Component
 public class PagamentoCompra {
-    public void pagamento() {
+    public Compra  pagamento() {
         var scanner = new Scanner(System.in);
+        System.out.println("Qual o seu nome?");
+        String nome = scanner.nextLine();
+        var now = LocalDateTime.now();
+        Compra compra = new Compra(nome, now);
+
         List<ItemCompraDTO> carrinho = carregarCarrinhoDoJSON();
 
         double total = calcularPrecoTotal(carrinho);
 
+        System.out.println("Escolha a forma de pagamento (digite 'credito' ou 'debito'):");
+        String formaPagamento = scanner.nextLine();
+        var valorFinalComDesconto = total;
+
+        if (formaPagamento.equalsIgnoreCase("debito")) {
+            valorFinalComDesconto = total * 0.9;
+        }
+
         System.out.println("Produtos Comprados:");
         for (ItemCompraDTO item : carrinho) {
+            double precoDesconto = item.getPreco() * 0.9;
+            var itemAdd = new ItemCompraDTO(item.getNome(), precoDesconto, precoDesconto, item.getQuantidadeDesejada());
+            compra.adicionarItem(itemAdd);
             System.out.println(item.getNome() + " - Quantidade: " + item.getQuantidadeDesejada() + " - Preço: R$" + item.getPreco());
         }
 
         System.out.println("Preço Total da Compra: R$" + total);
+        System.out.println("Preço Final a Pagar: R$" + valorFinalComDesconto);
 
-        System.out.println("Escolha a forma de pagamento (digite 'credito' ou 'debito'):");
-        String formaPagamento = scanner.nextLine();
-
-        if (formaPagamento.equalsIgnoreCase("debito")) {
-            total = total * 0.9;
-        }
-
-        System.out.println("Preço Final a Pagar: R$" + total);
+        System.out.println(compra);
+        return compra;
     }
 
     private List<ItemCompraDTO> carregarCarrinhoDoJSON() {
