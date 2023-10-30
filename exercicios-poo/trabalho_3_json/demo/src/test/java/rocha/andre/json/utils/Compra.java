@@ -1,5 +1,6 @@
 package rocha.andre.json.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 import rocha.andre.json.DTO.ItemCompraDTO;
 
@@ -9,6 +10,7 @@ import java.util.Random;
 
 @Component
 public class Compra {
+
     private int id;
     private LocalDateTime dataHora;
     private String nome;
@@ -36,4 +38,33 @@ public class Compra {
                 ", itensCarrinho=" + itensCarrinho +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public ArrayList<ItemCompraDTO> getItensCarrinho() {
+        return itensCarrinho;
+    }
+
 }

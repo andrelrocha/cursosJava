@@ -1,1 +1,40 @@
-[{}]
+[
+  {
+    "id": 279,
+    "dataHora": "2023-10-30T14:47:31.428128100",
+    "nome": "andre",
+    "itensCarrinho": [
+      {
+        "nome": "lolo",
+        "quantidade": 1,
+        "preco": 10.0,
+        "precoFinal": 9.0
+      },
+      {
+        "nome": "droga",
+        "quantidade": 1,
+        "preco": 10.0,
+        "precoFinal": 9.0
+      }
+    ]
+  },
+  {
+    "id": 704,
+    "dataHora": "2023-10-30T14:50:09.263130600",
+    "nome": "lucio",
+    "itensCarrinho": [
+      {
+        "nome": "pao",
+        "quantidade": 1,
+        "preco": 15.0,
+        "precoFinal": 13.5
+      },
+      {
+        "nome": "cocaina",
+        "quantidade": 1,
+        "preco": 8.5,
+        "precoFinal": 7.65
+      }
+    ]
+  }
+]

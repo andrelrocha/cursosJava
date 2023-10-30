@@ -83,7 +83,8 @@ public class Hub {
             var atualizarEstoque = new AtualizaEstoque();
             atualizarEstoque.atualizarEstoque();
 
-
+            var registroCompra = new RegistroCompra();
+            registroCompra.registrarCompra(compra);
         }
     }
 }

@@ -38,15 +38,14 @@ public class PagamentoCompra {
         System.out.println("Produtos Comprados:");
         for (ItemCompraDTO item : carrinho) {
             double precoDesconto = item.getPreco() * 0.9;
-            var itemAdd = new ItemCompraDTO(item.getNome(), precoDesconto, precoDesconto, item.getQuantidadeDesejada());
-            compra.adicionarItem(itemAdd);
+            item.setPrecoFinal(precoDesconto);
+            compra.adicionarItem(item);
             System.out.println(item.getNome() + " - Quantidade: " + item.getQuantidadeDesejada() + " - Preço: R$" + item.getPreco());
         }
 
         System.out.println("Preço Total da Compra: R$" + total);
         System.out.println("Preço Final a Pagar: R$" + valorFinalComDesconto);
 
-        System.out.println(compra);
         return compra;
     }
 
