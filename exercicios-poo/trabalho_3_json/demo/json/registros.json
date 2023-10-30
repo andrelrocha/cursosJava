@@ -40,5 +40,32 @@
         "precoFinal": 13.5
       }
     ]
+  },
+  {
+    "id": 64,
+    "dataHora": "2023-10-30T15:51:32.083183300",
+    "nome": "andrezin",
+    "valorSemDesconto": 2410.0,
+    "valorComDesconto": 2169.0,
+    "itensCarrinho": [
+      {
+        "nome": "xbox",
+        "quantidade": 1,
+        "preco": 2000.0,
+        "precoFinal": 1800.0
+      },
+      {
+        "nome": "elden ring",
+        "quantidade": 1,
+        "preco": 300.0,
+        "precoFinal": 270.0
+      },
+      {
+        "nome": "diamba",
+        "quantidade": 5,
+        "preco": 22.0,
+        "precoFinal": 19.8
+      }
+    ]
   }
 ]

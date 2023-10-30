@@ -34,6 +34,6 @@ public class ListarCompras {
             System.out.println(pedido + "\n");
             totalCompras += pedido.getValorComDesconto();
         }
-        System.out.printf("Valor total das compras: R$ %d\n", totalCompras);
+        System.out.printf("Valor total das compras: R$ %.2f\n", totalCompras);
     }
 }
