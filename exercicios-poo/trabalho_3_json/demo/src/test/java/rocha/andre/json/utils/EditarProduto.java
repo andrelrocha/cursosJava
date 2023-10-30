@@ -1,8 +1,9 @@
-package rocha.andre.json;
+package rocha.andre.json.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.stereotype.Component;
+import rocha.andre.json.Produto;
 
 import java.io.*;
 import java.util.ArrayList;

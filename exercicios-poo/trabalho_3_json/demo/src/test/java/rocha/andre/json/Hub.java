@@ -2,6 +2,10 @@ package rocha.andre.json;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import rocha.andre.json.utils.Carrinho;
+import rocha.andre.json.utils.CriarProduto;
+import rocha.andre.json.utils.EditarProduto;
+import rocha.andre.json.utils.PagamentoCompra;
 
 import java.util.Scanner;
 
@@ -13,8 +17,11 @@ public class Hub {
     private EditarProduto editarProduto;
     @Autowired
     private Carrinho carrinho;
+    @Autowired
+    private PagamentoCompra pagamentoCompra;
 
     public static void main(String[] args) {
+        System.out.println("Você é cliente ou adminstrador?\n");
         Scanner scanner = new Scanner(System.in);
         var user = scanner.nextLine();
 
@@ -53,31 +60,11 @@ public class Hub {
         }
 
         if (user.equals("cliente")) {
-            System.out.println("Digite o numero da operação desejada ou 'sair'\n");
-            System.out.println();
-            var esc = scanner.nextInt();
+            var carrinho = new Carrinho();
+            carrinho.executar();
 
-            switch (esc) {
-                case 1:
-                    var carrinho = new Carrinho();
-                    carrinho.executar();
-                    break;
-
-                case 2:
-                    //
-                    break;
-
-                case 3:
-                    //
-                    System.out.println("Opção 3 selecionada.");
-                    break;
-
-                default:
-                    System.out.println("Opção inválida.");
-                    break;
-            }
+            var pagamento = new PagamentoCompra();
+            pagamento.pagamento();
         }
-
-
     }
 }

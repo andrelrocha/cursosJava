@@ -1,10 +1,10 @@
-package rocha.andre.json;
+package rocha.andre.json.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import rocha.andre.json.DTO.CarrinhoDTO;
+import rocha.andre.json.DTO.ItemCompraDTO;
+import rocha.andre.json.Produto;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,13 +20,13 @@ public class Carrinho {
         }
 
         var scanner = new Scanner(System.in);
-        ArrayList<CarrinhoDTO> carrinho = new ArrayList<>();
+        ArrayList<ItemCompraDTO> carrinho = new ArrayList<>();
 
         while (true) {
-            System.out.print("Digite o nome do produto desejado (ou 'sair' para encerrar): ");
+            System.out.print("Digite o nome do produto desejado (ou 'acabei' para ir para concluir sua compra): ");
             String nomeProduto = scanner.nextLine();
 
-            if (nomeProduto.equalsIgnoreCase("sair")) {
+            if (nomeProduto.equalsIgnoreCase("acabei")) {
                 break;
             }
 
@@ -53,7 +53,7 @@ public class Carrinho {
                 continue;
             }
 
-            carrinho.add(new CarrinhoDTO(produtoSelecionado.getNome(), quantidadeDesejada));
+            carrinho.add(new ItemCompraDTO(produtoSelecionado.getNome(), produtoSelecionado.getPreco(), quantidadeDesejada));
 
             System.out.println("Produto adicionado ao carrinho.");
         }
@@ -84,10 +84,21 @@ public class Carrinho {
         return produtos;
     }
 
-    private void salvarCarrinhoNoJSON(ArrayList<CarrinhoDTO> carrinho) {
-        var objectMapper = new ObjectMapper();
+    private void salvarCarrinhoNoJSON(ArrayList<ItemCompraDTO> carrinho) {
+        Gson gson = new Gson();
+        JsonArray jsonArray = new JsonArray();
+
+        for (ItemCompraDTO produto : carrinho) {
+            JsonElement element = gson.toJsonTree(produto);
+            jsonArray.add(element);
+        }
+
+        var file = new File("json/carrinho.json");
+
         try {
-            objectMapper.writeValue(new File("json/carrinho.json"), carrinho);
+            var writer = new FileWriter(file);
+            gson.toJson(jsonArray, writer);
+            writer.close();
             System.out.println("Carrinho salvo com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();

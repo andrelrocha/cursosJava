@@ -1,4 +1,4 @@
-package rocha.andre.json;
+package rocha.andre.json.utils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.io.*;
 import java.util.Scanner;
 import com.google.gson.Gson;
+import rocha.andre.json.Produto;
 
 @Component
 public class CriarProduto {
